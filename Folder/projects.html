@@ -1,23 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Projects – inarhis</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects | inarhis</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <nav>
-    <ul>
+  <nav class="navbar">
+    <div class="logo">inarhis</div>
+    <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="projects.html">Projects</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="https://www.linkedin.com/in/jianne-s-b5aa53235/" target="_blank">LinkedIn</a></li>
+      <li><a href="resume.html">Resume</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
-  <section class="highlight">
-    <h2>My Projects</h2>
-    <p>Here’s where your games and worlds will live!</p>
-    <!-- Add links or thumbnails here -->
-  </section>
+  <main class="projects">
+    <h1>Selected Projects</h1>
+    <div class="project-grid">
+      <div class="project-item">
+        <img src="images/project1-thumb.png" alt="Magic Courier">
+        <h2>Magic Courier</h2>
+        <p>A stylized 2.5D fantasy platformer with custom UI and level design.</p>
+        <a href="project-magic-courier.html" class="btn">View Case Study</a>
+      </div>
+      <div class="project-item">
+        <img src="images/project2-thumb.png" alt="UI Inventory Overhaul">
+        <h2>UI Inventory Overhaul</h2>
+        <p>Reimagined a game inventory system with usability testing and wireframes.</p>
+        <a href="#" class="btn">Coming Soon</a>
+      </div>
+    </div>
+  </main>
 </body>
 </html>
