@@ -1,12 +1,37 @@
-<main class="resume-page">
-  <h1>My Resume</h1>
-  <object 
-    data="assets/School_Resume.pdf" 
-    type="application/pdf" 
-    width="100%" 
-    height="800px">
-    <p>Your browser does not support embedded PDFs.  
-       You can <a href="assets/School_Resume.pdf" target="_blank">
-       download the PDF</a> instead.</p>
-  </object>
-</main>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Work Portfolio | Resume</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">Work Portfolio</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="resume.html" class="active">Resume</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="resume-container">
+    <h1>Resume</h1>
+
+    <div class="pdf-block">
+      <a href="assets/School_Resume.pdf" target="_blank" class="pdf-link">
+        Download Full PDF
+      </a>
+    </div>
+
+    <div class="resume-block">
+      <embed 
+        src="assets/School_Resume.pdf#toolbar=0&navpanes=0&scrollbar=0" 
+        type="application/pdf"
+      />
+    </div>
+  </section>
+</body>
+</html>
