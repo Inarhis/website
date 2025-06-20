@@ -2,18 +2,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
 
 :root {
-  /* Cold-toned blues */
-  --primary-color: #0D47A1;    /* Dark Blue */
-  --secondary-color: #82B1FF;  /* Light Blue */
-  --bg-color: #F0F4FC;         /* Very Light Blue */
-  --text-color: #212121;       /* Dark Gray */
-  --nav-bg: #1A237E;           /* Indigo */
-  --nav-text: #E3F2FD;         /* Pale Blue */
-  --border-color: #000000;     /* Black borders */
+  --primary-color:    #0D47A1;   /* Dark Blue */
+  --secondary-color:  #82B1FF;   /* Light Blue */
+  --bg-color:         #F0F4FC;   /* Very Light Blue */
+  --text-color:       #212121;   /* Dark Gray */
+  --nav-bg:           #1A237E;   /* Indigo */
+  --nav-text:         #E3F2FD;   /* Pale Blue */
+  --border-color:     #000000;   /* Black borders */
   --transition-speed: 0.3s;
 }
 
-/* Reset */
+/* RESET */
 *,
 *::before,
 *::after {
@@ -25,7 +24,7 @@
   background: transparent;
 }
 
-/* Base typography */
+/* BASE TYPOGRAPHY */
 body {
   font-family: 'Poppins', sans-serif;
   background: var(--bg-color);
@@ -34,7 +33,7 @@ body {
   scroll-behavior: smooth;
 }
 
-/* Headings */
+/* HEADINGS */
 h1, h2, h3 {
   font-weight: 800;
   color: var(--primary-color);
@@ -55,6 +54,7 @@ h1, h2, h3 {
   font-size: 1.5rem;
   color: #ffffff;
   text-transform: capitalize;
+  font-weight: 600;
 }
 .navbar .nav-links {
   list-style: none;
@@ -72,12 +72,12 @@ h1, h2, h3 {
   color: var(--secondary-color);
 }
 
-/* HERO / INTRO */
+/* INTRO / ABOUT ME */
 .intro {
   text-align: center;
+  max-width: 800px;
   margin: 2rem auto;
   padding: 2rem;
-  max-width: 800px;
   background: #ffffff;
   border: 2px solid var(--primary-color);
   border-radius: 8px;
@@ -90,38 +90,72 @@ h1, h2, h3 {
   font-size: 1.2rem;
   margin-bottom: 1.5rem;
 }
-.cta-button {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  background: var(--primary-color);
-  color: #fff;
-  text-decoration: none;
-  border-radius: 4px;
-  margin-top: 1.5rem;
-  transition: background var(--transition-speed),
-              transform var(--transition-speed);
-}
-.cta-button:hover {
-  background: var(--secondary-color);
-  transform: translateY(-2px);
-}
-
-/* Homepage cover image */
 .intro-image {
   display: block;
-  width: 60%;
-  max-width: 400px;
-  margin: 2rem auto 0;
+  width: 50%;
+  max-width: 300px;
+  height: auto;
+  margin: 1.5rem auto;
   border: 4px solid var(--primary-color);
   border-radius: 8px;
 }
 
+/* RESUME PAGE – no side indents, matches other sections */
+.resume-container {
+  text-align: center;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem 0;           /* only top/bottom padding */
+  background: #ffffff;
+  border: 2px solid var(--primary-color);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.resume-container h1 {
+  font-size: 2rem;
+}
+.pdf-block {
+  margin-bottom: 1.5rem;
+}
+.pdf-link {
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  background: var(--primary-color);
+  color: #fff;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 3px;
+  border: 2px solid var(--primary-color);
+  outline: 2px solid var(--secondary-color);
+  outline-offset: 4px;
+  transition: background var(--transition-speed),
+              transform var(--transition-speed);
+}
+.pdf-link:hover {
+  background: var(--secondary-color);
+  color: #000;
+  transform: translateY(-1px);
+}
+.resume-block {
+  display: flex;
+  justify-content: center;
+}
+.resume-block embed {
+  width: 100%;               /* full container width */
+  height: 60vh;
+  border-radius: 4px;
+  border: none;              /* container border covers it */
+  margin-bottom: 2rem;
+  background: #fff;
+}
+
 /* PROJECTS GRID */
 .projects-container {
-  padding: 2rem;
   max-width: 1200px;
-  margin: auto;
+  margin: 2rem auto;
+  padding: 0 1rem;
 }
+.projects-container h2,
 .projects-container h1 {
   font-size: 2rem;
   border-bottom: 1px solid var(--border-color);
@@ -167,56 +201,16 @@ h1, h2, h3 {
   margin-bottom: 0.25rem;
 }
 
-/* RESUME PAGE */
-.resume-container {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-.pdf-block {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-.pdf-link {
-  padding: 0.6rem 1.2rem;
-  font-size: 1rem;
-  background: var(--primary-color);
-  color: #fff;
-  text-decoration: none;
-  display: inline-block;
-  border-radius: 3px;
-  border: 2px solid var(--primary-color);
-  outline: 2px solid var(--secondary-color);
-  outline-offset: 4px;
-  transition: background var(--transition-speed),
-              transform var(--transition-speed);
-}
-.pdf-link:hover {
-  background: var(--secondary-color);
-  transform: translateY(-1px);
-}
-.resume-block {
-  display: flex;
-  justify-content: center;
-}
-.resume-block embed {
-  width: 100%;
-  max-width: 600px;
-  aspect-ratio: 8.5/11;
-  border: 1px solid var(--border-color);
-  border-radius: 4px;
-  background: #fff;
-  margin: 0;
-}
-
 /* CONTACT PAGE */
 .contact-page {
-  padding: 2rem;
+  text-align: center;
   max-width: 600px;
   margin: 2rem auto;
-  border: 1px solid var(--border-color);
-  border-radius: 4px;
+  padding: 2rem;
   background: #ffffff;
+  border: 2px solid var(--primary-color);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 .contact-list {
   list-style: none;
@@ -235,39 +229,16 @@ h1, h2, h3 {
   color: var(--secondary-color);
 }
 
-/* FOOTER */
-.site-footer {
-  text-align: center;
-  padding: 2rem;
-  font-size: 0.9rem;
-  color: #777;
-  border-top: 1px solid var(--border-color);
-  background: var(--bg-color);
-}
-.site-footer .social-links {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-.site-footer .social-links a {
-  color: var(--text-color);
-  text-decoration: none;
-  transition: color var(--transition-speed);
-}
-.site-footer .social-links a:hover {
-  color: var(--primary-color);
-}
-
 /* RESPONSIVE */
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
     gap: 1rem;
   }
-  .intro {
-    padding: 2rem 1rem;
+  .intro,
+  .resume-container,
+  .contact-page {
+    padding: 1.5rem 1rem;
   }
   .projects-grid {
     grid-template-columns: 1fr;
