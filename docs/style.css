@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
 
+/* ==========================================================
+   ROOT VARIABLES & BASE STYLES
+========================================================== */
 :root {
   --primary-color: #0D47A1;
   --secondary-color: #82B1FF;
@@ -10,218 +13,445 @@
   --border-color: #000;
   --transition-speed: 0.3s;
 }
-
-/* RESET + BASE */
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
-::selection{background:var(--secondary-color);color:#fff;}
-body{
-  font-family:'Poppins',sans-serif;
-  background-color:var(--bg-color);
-  background-image:linear-gradient(#dce6fa 1px,transparent 1px),
-                   linear-gradient(90deg,#dce6fa 1px,transparent 1px);
-  background-size:30px 30px;
-  color:var(--text-color);
-  line-height:1.6;
-  scroll-behavior:smooth;
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+::selection { background: var(--secondary-color); color: #fff; }
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-color);
+  background-image: linear-gradient(#dce6fa 1px, transparent 1px),
+                    linear-gradient(90deg, #dce6fa 1px, transparent 1px);
+  background-size: 30px 30px;
+  color: var(--text-color);
+  line-height: 1.6;
+  scroll-behavior: smooth;
 }
 
-/* NAVBAR */
-.navbar{
-  display:flex;justify-content:space-between;align-items:center;
-  padding:1rem 2rem;background:var(--nav-bg);
-  border-bottom:1px solid var(--border-color);
-  box-shadow:0 2px 10px rgba(0,0,0,0.2);
+/* ==========================================================
+   NAVBAR
+========================================================== */
+.navbar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1rem 2rem; background: var(--nav-bg);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
 }
-.logo{font-size:1.5rem;color:#fff;font-weight:800;letter-spacing:1px;}
-.nav-links{list-style:none;display:flex;gap:1rem;}
-.nav-links a{
-  color:var(--nav-text);text-decoration:none;font-weight:600;
-  transition:color var(--transition-speed),transform var(--transition-speed);
+.logo { font-size: 1.5rem; color: #fff; font-weight: 800; letter-spacing: 1px; }
+.nav-links { list-style: none; display: flex; gap: 1rem; }
+.nav-links a {
+  color: var(--nav-text); text-decoration: none; font-weight: 600;
+  transition: color var(--transition-speed), transform var(--transition-speed);
 }
-.nav-links a:hover,.nav-links a.active{
-  color:var(--secondary-color);transform:translateY(-2px);
+.nav-links a:hover, .nav-links a.active {
+  color: var(--secondary-color); transform: translateY(-2px);
 }
 
-/* SHARED TITLE GRADIENT */
-h1,h2,h3,.project-title,.eh-subtitle,.resume-container h1,
+/* ==========================================================
+   TITLES & HEADERS
+========================================================== */
+h1, h2, h3 {
+  text-transform: uppercase;
+  color: var(--primary-color);
+  font-weight: 800;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+h1::after, .project-title::after {
+  content: "";
+  display: block;
+  width: 60%;
+  height: 4px;
+  margin: 0.6rem auto 1.2rem;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--primary-color));
+  background-size: 200% 200%;
+  border-radius: 3px;
+  animation: slideGradient 3s linear infinite;
+  box-shadow: 0 0 8px rgba(13,71,161,0.4);
+}
+h2::after, h3::after { display: none; }
+
+/* ==========================================================
+   UNIVERSAL CONTAINERS
+========================================================== */
+.intro, .project-page, .resume-container, .contact-page {
+  background: #fff;
+  border: 4px solid var(--primary-color);
+  border-left-width: 2px; border-right-width: 2px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  animation: fadeZoomIn 1.2s ease forwards;
+  margin: 3rem auto;
+  padding: 2rem 1.5rem;
+  max-width: 850px;
+  text-align: center;
+}
+
+/* ==========================================================
+   HOME / INTRO PAGE
+========================================================== */
+.intro h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+.intro p { font-size: 1.1rem; margin-bottom: 1.5rem; }
+.intro img {
+  width: 70%; max-width: 500px;
+  border: 3px solid var(--primary-color);
+  border-radius: 12px;
+  display: block; margin: 0 auto 1.5rem;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+}
+.intro img:hover { transform: scale(1.03); }
+
+/* ==========================================================
+   PROJECTS PAGE
+========================================================== */
+.projects-container {
+  max-width: 900px; margin: 3rem auto; text-align: center; padding: 0 1rem;
+}
+.projects-grid {
+  display: flex; flex-direction: column; align-items: center; gap: 2.5rem;
+}
+.project-card {
+  background: #fff;
+  border: 3px solid var(--primary-color);
+  border-radius: 12px;
+  width: 80%; max-width: 650px;
+  text-align: center; text-decoration: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  transition: transform 0.3s ease;
+  animation: fadeUp 1.2s ease forwards;
+}
+.project-card img {
+  width: 85%; max-width: 500px; height: auto;
+  margin: 1.5rem auto; border-radius: 8px; border: none;
+}
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+}
+.project-title { font-size: 1.8rem; margin-bottom: 1rem; }
+
+/* ==========================================================
+   INDIVIDUAL PROJECT PAGE
+========================================================== */
+.project-page h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+.project-page p.project-intro {
+  font-size: 1.05rem; color: #333;
+  max-width: 700px; margin: 0 auto 2rem; line-height: 1.7;
+}
+
+/* MAIN IMAGE */
+.main-image img {
+  width: 60%; max-width: 500px;
+  border-radius: 12px; display: block;
+  margin: 1.5rem auto;
+  transition: transform 0.3s ease;
+}
+.main-image img:hover { transform: scale(1.03); }
+
+/* ==========================================================
+   IMAGE GALLERIES
+========================================================== */
+.image-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  justify-items: center;
+  margin: 2rem auto;
+  max-width: 950px;
+}
+.image-gallery.bottom {
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 700px;
+}
+.image-gallery img {
+  width: 100%; max-width: 280px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+.image-gallery img:hover { transform: scale(1.03); }
+
+/* ==========================================================
+   EVERMORE HIGH (TWINE MAP)
+========================================================== */
+#twine-map {
+  display: block;
+  margin: 1.5rem auto 1rem;
+  width: 60% !important;
+  max-width: 700px !important;
+  height: auto !important;
+  border-radius: 12px;
+  object-fit: contain;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+#twine-map + figcaption {
+  text-align: center; font-size: 0.95rem; color: #333;
+  margin-top: 0.5rem; font-style: italic;
+}
+
+/* ==========================================================
+   RESUME PAGE
+========================================================== */
+.resume-image {
+  width: 85%; max-width: 700px;
+  border: 3px solid var(--primary-color);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  margin: 2rem auto;
+  transition: transform 0.3s ease;
+}
+.resume-image:hover { transform: scale(1.02); }
+
+/* ==========================================================
+   CONTACT PAGE
+========================================================== */
+.contact-page {
+  text-align: center;
+  max-width: 700px;
+  margin: 4rem auto;
+  padding: 2rem 1.8rem;
+  background: #fff;
+  border: 4px solid var(--primary-color);
+  border-left-width: 3px; border-right-width: 3px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+  animation: fadeZoomIn 1.2s ease forwards;
+}
 .contact-page h1 {
-  position:relative;
-  display:inline-block;
-  text-transform:uppercase;
-  color:var(--primary-color);
-  font-weight:800;
-  margin-bottom:1rem;
+  font-size: 2.4rem;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.contact-list { list-style: none; padding: 0; }
+.contact-list li {
+  margin: 0.8rem 0;
+  font-size: 1.05rem;
+  color: var(--text-color);
+}
+.contact-list a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+.contact-list a:hover { color: var(--secondary-color); text-decoration: underline; }
+
+/* ==========================================================
+   BUTTONS
+========================================================== */
+.eh-btn, .back-link, .pdf-link {
+  display: inline-block;
+  background: var(--primary-color);
+  color: #fff;
+  padding: 1rem 2.2rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 50px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(13,71,161,0.3);
+  margin: 2rem 1rem 0;
+}
+.eh-btn:hover, .back-link:hover, .pdf-link:hover {
+  background: var(--secondary-color);
+  transform: translateY(-3px);
+  color: #000;
 }
 
-h1::after,h2::after,h3::after,
-.project-title::after,.eh-subtitle::after,
-.resume-container h1::after,.contact-page h1::after {
-  content:"";
-  display:block;
-  width:90%; /* ← extended line length */
-  height:6px; /* slightly thicker line */
-  margin:0.6rem auto 1.2rem;
-  background:linear-gradient(90deg,var(--primary-color),var(--secondary-color),var(--primary-color));
-  background-size:200% 200%;
-  border-radius:4px;
-  animation:slideGradient 3s linear infinite;
-  box-shadow:0 0 12px rgba(13,71,161,0.4);
+/* ==========================================================
+   IMAGE ALIGNMENT (Hovercore, Evermore High, etc.)
+========================================================== */
+.image-gallery figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
-/* INTRO */
-.intro{
-  text-align:center;max-width:800px;margin:2rem auto;padding:2rem;
-  background:#fff;border:2px solid var(--primary-color);border-radius:12px;
-  box-shadow:0 2px 8px rgba(0,0,0,0.15);animation:fadeUp 1.2s ease forwards;
-}
-.intro h1{font-size:2.5rem;}
-.intro p{font-size:1.2rem;margin-bottom:1.5rem;}
-.intro-image{
-  display:block;width:50%;max-width:300px;margin:1.5rem auto;
-  border:4px solid var(--primary-color);border-radius:12px;
-  transition:transform 0.3s ease;
-}
-.intro-image:hover{transform:scale(1.05);}
-
-/* RESUME */
-.resume-container{
-  text-align:center;max-width:800px;margin:4rem auto;padding:2rem 2rem 3rem;
-  background:#fff;border:3px solid var(--primary-color);border-radius:12px;
-  box-shadow:0 4px 20px rgba(0,0,0,0.08);animation:fadeZoomIn 1.2s ease forwards;
-}
-.resume-container h1{font-size:2.4rem;letter-spacing:1px;}
-.pdf-link{
-  display:inline-block;background:var(--primary-color);color:#fff;
-  padding:0.9rem 1.8rem;font-weight:600;font-size:1.05rem;
-  border-radius:8px;text-decoration:none;box-shadow:0 4px 10px rgba(0,0,0,0.15);
-  transition:all 0.3s ease;
-}
-.pdf-link:hover{
-  background:var(--secondary-color);color:#000;
-  transform:translateY(-3px);box-shadow:0 6px 15px rgba(0,0,0,0.25);
-}
-.resume-image{
-  width:85%;max-width:700px;border:2px solid #ccc;border-radius:10px;
-  box-shadow:0 3px 20px rgba(0,0,0,0.1);transition:transform 0.3s ease;
-  animation:fadeUp 1.2s ease forwards;
-}
-.resume-image:hover{transform:scale(1.02);}
-
-/* PROJECTS PAGE */
-.projects-container{max-width:900px;margin:2rem auto;padding:0 1rem;text-align:center;}
-.projects-container h3{font-size:6rem;letter-spacing:6px;margin:4rem 0 2rem;text-shadow:2px 2px 0 #fff,4px 4px 0 rgba(0,0,0,0.15),6px 6px 15px rgba(13,71,161,0.25);}
-.projects-grid{display:flex;flex-direction:column;align-items:center;gap:2.5rem;}
-.project-card{
-  background:#fff;border:2px solid var(--primary-color);border-radius:10px;
-  width:70%;max-width:600px;text-align:center;
-  box-shadow:0 2px 5px rgba(0,0,0,0.1);animation:fadeUp 1s ease forwards;
-  transition:transform 0.3s ease;text-decoration:none;
-}
-.project-card:hover{transform:translateY(-5px);box-shadow:0 6px 15px rgba(0,0,0,0.15);}
-.project-image{width:80%;margin:1rem auto;border-radius:6px;display:block;}
-.project-title{font-size:1.6rem;margin-bottom:1rem;}
-
-/* INDIVIDUAL PROJECT PAGE */
-.project-page{
-  max-width:900px;margin:4rem auto;padding:3rem 2rem;background:#fff;
-  border-radius:12px;border:2px solid var(--primary-color);
-  box-shadow:0 5px 20px rgba(0,0,0,0.1);animation:fadeZoomIn 1.2s ease forwards;
-  text-align:center;
-}
-.project-page h1{font-size:2.4rem;margin-bottom:0.75rem;}
-.project-page p.project-intro{
-  font-size:1.05rem;color:#333;max-width:700px;margin:0 auto 2rem;line-height:1.7;
-}
-.main-image{text-align:center;margin-bottom:2.5rem;}
-.main-image img{
-  width:55%;max-width:600px;border:2px solid var(--primary-color);
-  box-shadow:0 4px 15px rgba(0,0,0,0.1);border-radius:12px;
-  transition:transform 0.3s ease;
-}
-.main-image img:hover{transform:scale(1.02);}
-.project-roles{margin-top:2rem;font-size:1rem;color:#333;font-weight:500;}
-.back-link{
-  display:inline-block;color:var(--primary-color);font-weight:600;
-  text-decoration:none;border-bottom:2px solid var(--primary-color);
-  margin-top:2.5rem;transition:color 0.3s ease,border-color 0.3s ease,transform 0.3s ease;
-}
-.back-link:hover{color:var(--secondary-color);border-color:var(--secondary-color);transform:translateY(-2px);}
-
-/* SHARED SECTIONS */
-.eh-section{
-  max-width:900px;margin:4rem auto;padding:2rem;background:#fff;
-  border-radius:12px;border:2px solid var(--primary-color);
-  box-shadow:0 5px 20px rgba(0,0,0,0.08);
-}
-.eh-subtitle{font-size:1.8rem;letter-spacing:1px;}
-.eh-btn{
-  display:inline-block;background:var(--primary-color);color:#fff;
-  padding:1rem 2.2rem;font-size:1.1rem;font-weight:700;
-  border-radius:50px;text-decoration:none;text-transform:uppercase;
-  transition:all 0.3s ease;box-shadow:0 4px 12px rgba(13,71,161,0.3);
-}
-.eh-btn:hover{background:var(--secondary-color);color:#000;transform:translateY(-3px);box-shadow:0 6px 18px rgba(13,71,161,0.4);}
-.eh-cta{margin-top:5rem;} /* Lower Play Game Button */
-
-/* WALK WITH US — 3x2 GALLERY GRID */
-.gameart-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);
-  gap:2rem;justify-items:center;max-width:1000px;margin:2rem auto;
-}
-.gameart-grid.two{grid-template-columns:repeat(2,1fr);max-width:800px;}
-.gallery-item img{
-  width:100%;max-width:300px;height:auto;border:2px solid var(--primary-color);
-  border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.1);
-  transition:transform 0.3s ease;
-}
-.gallery-item img:hover{transform:scale(1.03);}
-.gallery-item p{
-  font-size:0.9rem;color:#444;margin-top:0.5rem;
-  max-width:300px;line-height:1.5;text-align:center;
+.image-gallery figure img {
+  display: block;
+  margin: 0 auto;
 }
 
-/* CONTACT PAGE */
-.contact-page{
-  text-align:center;max-width:600px;margin:2rem auto;padding:2rem;
-  background:#fff;border:2px solid var(--primary-color);border-radius:8px;
-  box-shadow:0 4px 15px rgba(0,0,0,0.1);animation:fadeUp 1.2s ease forwards;
-}
-.contact-list{list-style:none;padding-left:0;}
-.contact-list li{margin-bottom:0.5rem;font-size:1rem;}
-.contact-list a{color:var(--primary-color);text-decoration:none;transition:color var(--transition-speed);}
-.contact-list a:hover{color:var(--secondary-color);}
-
-/* ANIMATIONS */
-@keyframes fadeUp{0%{opacity:0;transform:translateY(40px);}100%{opacity:1;transform:translateY(0);}}
-@keyframes fadeZoomIn{0%{opacity:0;transform:translateY(30px) scale(0.96);}100%{opacity:1;transform:translateY(0) scale(1);}}
-@keyframes slideGradient{0%{background-position:0 50%;}50%{background-position:100% 50%;}100%{background-position:0 50%;}}
-
-/* RESPONSIVE */
-@media(max-width:900px){.main-image img{width:70%;}.projects-container h3{font-size:4rem;}}
-@media(max-width:700px){
-  .projects-container h3{font-size:3rem;letter-spacing:3px;}
-  .project-page h1{font-size:1.8rem;}
-  .resume-container h1{font-size:2rem;}
-  .eh-subtitle{font-size:1.4rem;}
-  .gameart-grid,.gameart-grid.two{grid-template-columns:1fr;}
-}
-@media(max-width:600px){
-  .main-image img{width:85%;}
-  .project-page{padding:2rem 1rem;}
-  .eh-section{padding:1.5rem;}
-  .eh-btn{width:100%;padding:1rem 0;}
-  .nav-links{flex-direction:column;gap:0.6rem;}
+.image-gallery figure figcaption {
+  margin-top: 0.6rem;
+  max-width: 280px;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #333;
 }
 
-/* REMOVE UNDERLINES IN GAME DESCRIPTIONS */
-.project-card p a,
-.project-card p a:visited,
-.project-card p a:active{
-  text-decoration:none!important;
-  color:var(--text-color)!important;
-  font-weight:400!important;
+/* ==========================================================
+   NO CAR NO PROBLEM — STACKED IMAGES
+========================================================== */
+.stacked-gallery {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  max-width: 900px;
+  margin: 2rem auto;
 }
-.project-card p a:hover{
-  color:var(--secondary-color)!important;
-  text-decoration:none!important;
+
+.stacked-gallery img {
+  width: 70%;
+  max-width: 700px;
+  height: auto;
+  display: block;
+  margin: 1.5rem auto;
+  border-radius: 12px;
+  object-fit: contain;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.stacked-gallery img:hover {
+  transform: scale(1.02);
+}
+
+.stacked-gallery figcaption {
+  text-align: center;
+  font-size: 0.95rem;
+  color: #333;
+  margin-top: 0.6rem;
+  font-style: italic;
+  max-width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 900px) {
+  .stacked-gallery img {
+    width: 85%;
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 600px) {
+  .stacked-gallery img {
+    width: 95%;
+    max-width: 500px;
+  }
+}
+
+/* ==========================================================
+   FIX: CENTER & ALIGN IMAGES (Hovercore & Evermore High)
+========================================================== */
+.image-gallery {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.image-gallery figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.image-gallery figure img {
+  display: block;
+  margin: 0 auto;
+  width: 90%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 10px;
+  object-fit: contain;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.image-gallery figure img:hover {
+  transform: scale(1.03);
+}
+
+.image-gallery figure figcaption {
+  margin-top: 0.7rem;
+  max-width: 380px;
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.5;
+  text-align: center;
+  font-style: normal;
+}
+
+.image-gallery.bottom {
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  align-items: center;
+  max-width: 900px;
+  margin: 2rem auto;
+}
+
+@media (max-width: 900px) {
+  .image-gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .image-gallery {
+    grid-template-columns: 1fr;
+  }
+  .image-gallery figure img {
+    max-width: 320px;
+  }
+}
+
+/* ==========================================================
+   HOVERCORE — Perfect Centering for Gallery Images
+========================================================== */
+.image-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+  text-align: center;
+  margin: 2rem auto;
+  max-width: 900px;
+}
+
+.image-gallery figure {
+  flex: 1 1 40%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+}
+
+.image-gallery img {
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: contain;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  margin: 0 auto;
+  transition: transform 0.3s ease;
+}
+
+.image-gallery img:hover {
+  transform: scale(1.03);
+}
+
+.image-gallery figcaption {
+  margin-top: 0.6rem;
+  max-width: 380px;
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.5;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .image-gallery { flex-direction: column; align-items: center; }
+  .image-gallery figure { max-width: 90%; }
 }
