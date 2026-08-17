@@ -1,3 +1,6 @@
+Here is your complete CSS stylesheet with all image sizing fixes included:
+
+```css
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
 
 /* ==========================================================
@@ -217,7 +220,7 @@ h1::after,
 }
 
 /* ==========================================================
-   INDIVIDUAL PROJECT PAGE
+   INDIVIDUAL PROJECT PAGE & FIGURES
 ========================================================== */
 .project-page p.project-intro {
   max-width: 700px;
@@ -227,8 +230,9 @@ h1::after,
 }
 
 .main-image img {
-  width: 60%;
-  max-width: 500px;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
   border-radius: 12px;
   margin: 1.5rem auto;
   display: block;
@@ -237,6 +241,23 @@ h1::after,
 
 .main-image img:hover {
   transform: scale(1.03);
+}
+
+/* Constraints for figure elements and narrative map images */
+figure {
+  width: 100%;
+  max-width: 100%;
+  margin: 1.5rem 0;
+  overflow: hidden;
+}
+
+figure img,
+#twine-map {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
 }
 
 /* ==========================================================
