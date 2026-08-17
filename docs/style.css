@@ -238,17 +238,7 @@ h1::after,
 .main-image img:hover {
   transform: scale(1.03);
 }
-/* ==========================================================
-   TWINE NARRATIVE MAP
-========================================================== */
-#twine-map {
-  display: block;
-  width: 100%;
-  max-width: 800px;
-  height: auto;
-  margin: 1.5rem auto;
-  border-radius: 10px;
-}
+
 /* ==========================================================
    IMAGE GALLERIES (3 on top, 2 on bottom)
 ========================================================== */
@@ -335,6 +325,31 @@ h1::after,
 .contact-list a:hover {
   color: var(--secondary-color);
   text-decoration: underline;
+}
+
+/* ==========================================================
+   PROJECT PAGE TEXT BUBBLE BUTTONS
+========================================================== */
+.eh-btn,
+.back-link {
+  display: inline-block;
+  padding: 0.5rem 1.2rem;
+  margin: 0.5rem;
+  border: 2px solid var(--primary-color);
+  border-radius: 25px;
+  background: #fff;
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.eh-btn:hover,
+.back-link:hover {
+  background: var(--primary-color);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
 /* ==========================================================
